@@ -1,24 +1,33 @@
-# .github/workflows/main.yml
+name: Test workflow
 
+# Trigger this workflow on all pull requests
 on:
   pull_request:
-  push:
-    branches: [main]
+    branches:
+      - develop
+      - staging
 
 jobs:
-  ci:
+  test:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Test
-        run: |
-          npm install
-          npm run test-component
 
-      - name: Deploy
-        # Only run this step if the branch is main
-        if: github.ref == 'refs/heads/main'
-        env:
-          deploy_url: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
-        run: |
-          curl "$deploy_url"
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v1
+
+      - name: Use Node.js 21.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 21.x
+
+      - name: Install Dependancies
+        run: npm install
+
+      - name: Run Lint
+        run: npm run lint
+
+      - name: Run Build
+        run: npm run build
+
+      - name: Run Tests
+        run: npm run test
