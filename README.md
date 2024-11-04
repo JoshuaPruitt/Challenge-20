@@ -125,7 +125,7 @@ export default defineConfig({
 
 #### This is the Ctrf testing summary shown on the deploy.yml github actions summary.
 
-<img src='testingSummary.png' width='980' height='460'>
+<img src='./Assets/testingSummary.png' width='980' height='600'>
 
 ## Features
 
