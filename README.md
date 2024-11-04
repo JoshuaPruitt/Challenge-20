@@ -147,6 +147,8 @@ Licensed under the MIT license.
 ## Technologies Used
 
 <ul>
+<li>Cypress test results tutorial <a href='https://medium.com/@ma11hewthomas/cypress-json-test-results-report-63a8a3092dd2'>here</a></li>
+<li>Render Deploy hooks docs <a href="https://docs.render.com/deploy-hooks#example-workflow">here</a></li>
 <li>Stack Overflow (For specific mongoose issues and ideas)</li>
 <li>Node.js (for installing packages as well as building and running code).</li>
 <li>Visual Studio Code (for writing code).</li>
