@@ -26,3 +26,7 @@ jobs:
           deploy_url: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
         run: |
           curl "$deploy_url"
+
+      #send results back to github
+      - name: Test Summary Results
+        run: npx github-actions-ctrf ctrf/ctrf-report.json
