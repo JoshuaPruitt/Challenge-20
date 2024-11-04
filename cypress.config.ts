@@ -1,5 +1,5 @@
 import { defineConfig } from 'cypress';
-const { GenerateCtrfReport } = require('cypress-ctrf-json-report')
+import { GenerateCtrfReport } from 'cypress-ctrf-json-reporter'
 import viteConfig from './vite.config';
 
 export default defineConfig({
@@ -10,15 +10,19 @@ export default defineConfig({
       bundler: 'vite',
       viteConfig,
     },
+
+    setupNodeEvents(on, _config){
+      // implement node event listeners here
+      new GenerateCtrfReport({
+        on,
+      })
+    }
   },
 
   e2e: {
     baseUrl: 'http://localhost:3001',
     setupNodeEvents(on, _config) {
       // implement node event listeners here
-      GenerateCtrfReport({
-        on,
-      })
     },
   },
 });

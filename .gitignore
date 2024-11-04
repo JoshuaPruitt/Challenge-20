@@ -136,3 +136,6 @@ dist
 cypress/videos
 cypress/screenshots
 cypress/reports
+
+#ctrf reports
+ctrf/
